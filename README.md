@@ -33,4 +33,7 @@ Now you can simple use it like so:
 ```php
 $sms = Yii::$app->sms->getService();
 $response = $sms->send('+79990005555', 'Hello, world!');
+
+//or just simle use
+$response = Yii::$app->sms->send('+79990005555', 'Hello, world!');
 ```
