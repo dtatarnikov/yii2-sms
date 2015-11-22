@@ -2,9 +2,7 @@
 namespace strong2much\sms;
 
 use Yii;
-use yii\base\Object;
 use yii\base\Component;
-use yii\base\Exception;
 use yii\base\InvalidConfigException;
 use strong2much\sms\services\IService;
 
@@ -36,7 +34,7 @@ class SmsManager extends Component
     }
 
     /**
-     * @return IService|Object retrieves message queue service
+     * @return IService retrieves message queue service
      */
     public function getService()
     {
@@ -61,13 +59,13 @@ class SmsManager extends Component
      * are not found are redirected to the {@link IService} object.
      * @param string $name the attribute name
      * @return mixed
-     * @throws Exception
+     * @throws \Exception
      */
     public function __get($name)
     {
         try {
             return parent::__get($name);
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             if(property_exists($this->_service, $name))
                 return $this->_service->$name;
             else
@@ -81,13 +79,13 @@ class SmsManager extends Component
      * @param string $name the attribute name
      * @param mixed $value the attribute value
      * @return mixed
-     * @throws Exception
+     * @throws \Exception
      */
     public function __set($name, $value)
     {
         try {
             return parent::__set($name, $value);
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             if(property_exists($this->_service, $name))
                 $this->_service->$name = $value;
             else
@@ -101,13 +99,13 @@ class SmsManager extends Component
      * @param string $name the method name
      * @param array $parameters the method parameters
      * @return mixed
-     * @throws Exception
+     * @throws \Exception
      */
     public function __call($name, $parameters)
     {
         try {
             return parent::__call($name, $parameters);
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             if(method_exists($this->_service, $name))
                 return call_user_func_array(array($this->_service, $name), $parameters);
             else
@@ -118,7 +116,7 @@ class SmsManager extends Component
     /**
      * Initialize message queue service
      * @param array $config service config
-     * @return IService|Object|null retrieves message queue model on success, otherwise null
+     * @return IService|null retrieves message queue model on success, otherwise null
      */
     protected function createService($config)
     {
