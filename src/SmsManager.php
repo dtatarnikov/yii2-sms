@@ -53,7 +53,7 @@ class SmsManager extends Component
         $this->serviceConfig = $config;
         $this->_service = $this->createService($this->serviceConfig);
         if(!isset($this->_service))
-            throw new InvalidConfigException(Yii::t('queue', "Message queue service is not initiated"));
+            throw new InvalidConfigException(Yii::t('sms', "Sms service is not initiated"));
     }
 
     /**
