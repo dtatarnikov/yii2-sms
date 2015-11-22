@@ -1,0 +1,25 @@
+{
+    "name": "strong2much/yii2-sms",
+    "type": "yii2-extension",
+    "minimum-stability": "stable",
+    "description": "This extension is using for works with different sms services",
+    "keywords": ["yii2", "sms", "sms.ru"],
+    "homepage": "https://github.com/strong2much/yii2-sms.git",
+	"license": "BSD-3-Clause",
+    "authors": [
+        {
+          "name": "Denis A. Tatarnikov",
+          "email": "strong2much@gmail.com",
+          "homepage": "https://github.com/strong2much"
+        }
+    ],
+    "require": {
+        "php": ">=5.4",
+        "yiisoft/yii2": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "strong2much\\sms\\": "src/"
+        }
+    }
+}
